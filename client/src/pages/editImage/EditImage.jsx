@@ -80,7 +80,7 @@ export const EditImage = () => {
 
           <div className="controls">
             <button type="submit" className="btn btn-primary" disabled={!file}>
-              Save Changes
+              Save 
             </button>
 
             <button
