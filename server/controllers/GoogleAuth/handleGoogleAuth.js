@@ -101,7 +101,8 @@ export const getGoogleLoginCallback = async (req, res) => {
      res.cookie('access_token',accessToken,{...baseConfig,maxAge: 15*60*1000})
      res.cookie('refresh_token',refreshToken,{...baseConfig,maxAge:7*24*60*60*1000})
 
-    return res.redirect(`http://localhost:5173/auth-success`)
+    return res.redirect(`https://authify-client-19tc.onrender.com/auth-success`)//for hosting
+    // return res.redirect(`http://localhost:5173/auth-success`)//for development
   } catch (error) {
     return res.status(500).json({error:error.message})
   }
