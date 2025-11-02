@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.set('view engine','ejs')
 app.use(cors({
-    origin:['http://localhost:5173', 'https://f98163cba279.ngrok-free.app'],
+    origin:['http://localhost:5173', 'https://f98163cba279.ngrok-free.app','https://authify-client-19tc.onrender.com'],
     credentials:true,
     methods:['GET,POST,PUT,DELETE,HEAD'],
     allowedHeaders:['Content-Type']
