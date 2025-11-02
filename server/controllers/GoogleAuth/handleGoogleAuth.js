@@ -96,7 +96,7 @@ export const getGoogleLoginCallback = async (req, res) => {
       sessionId: session._id
      })
 
-     const baseConfig = {httpOnly:true,sameSite:'lax'}
+     const baseConfig = {httpOnly:true,sameSite:"none"}
 
      res.cookie('access_token',accessToken,{...baseConfig,maxAge: 15*60*1000})
      res.cookie('refresh_token',refreshToken,{...baseConfig,maxAge:7*24*60*60*1000})
