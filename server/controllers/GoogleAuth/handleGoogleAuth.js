@@ -14,7 +14,7 @@ export const getGoogleLoginPage = (req, res) => {
       httpOnly: true,
       secure: true,
       maxAge: 60 * 10 * 1000,
-      sameSite: "lax",
+      sameSite: "none",
     };
 
     res.cookie("google_oauth_state", state, cookieConfig);
