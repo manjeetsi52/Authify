@@ -1,0 +1,132 @@
+/* Header container */
+.headerParent {
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+ background: var(--footer-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Inner header */
+.header {
+  width: 85%;
+  height: 6rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-xl);
+  color: var(--color-white-bg);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-size: var(--font-lg);
+}
+
+.desktop-navbar {
+  display: flex;
+  gap: 5rem;
+  list-style-type: none;
+}
+
+/* Nav Links */
+.navbar ul a {
+  text-decoration: none;
+  color: var(--color-white-bg);
+  font-weight: var(--font-semi-bold);
+}
+
+.navbar ul li a.active {
+  color: rgb(13, 186, 230);
+  text-decoration: underline;
+}
+
+.navbar ul a:hover {
+  color: var(--color-hover);
+}
+
+/* Hamburger button */
+.ham-div button {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-white-bg);
+  background-color: var(--color-dark-bg);
+
+  border: 1px solid var(--color-white-bg);
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.ham-div button:hover {
+  background-color: var(--color-white-bg);
+  color: var(--color-dark-bg);
+  transform: scale(1.1);
+}
+
+/* Mobile Navbar (hidden by default) */
+.mobile-navbar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  left: 0;
+  top: 6rem;
+  background-color: var(--footer-bg);
+  width: 100%;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  list-style-type: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.414);
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+.ham-div {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* hide desktop navbar */
+  .desktop-navbar {
+    display: none;
+  }
+
+  /* show hamburger */
+  .ham-div {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,36 @@
+/* Toast container style */
+.custom-toast {
+  box-sizing: border-box;
+  display: block;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Toast body */
+.custom-toast-body {
+  margin: 0;
+  color: white;
+}
+
+/* ✅ Keep the close button visible and clean */
+.custom-toast .Toastify__close-button {
+  all: unset; /* remove external CSS */
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #fff;
+  font-size: 16px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.custom-toast .Toastify__close-button:hover {
+  opacity: 1;
+}

@@ -1,0 +1,94 @@
+.edit-image-section{
+    height: 100vh;
+    background: var(--color-dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-image-page {
+    width: 40%;
+  padding: 2rem;
+  box-shadow: 0 0 1rem .5rem rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: var(--footer-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.edit-image-page h2 {
+  font-size: var(--font-2xl);
+  text-align: center;
+  color: white;
+}
+
+.preview-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+  /* border: 1px solid white; */
+}
+
+.preview-image {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 0 1rem .6rem rgba(255,255,255,0.06);
+}
+
+.file-input{
+  display: block;
+    margin: auto;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    letter-spacing: .1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  color: #fff;
+  /* box-shadow: 0 6px 18px rgba(255, 255, 255, 0.18); */
+}
+
+/* Secondary action */
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  &:hover{
+    border: 1px solid #1d4ed8;
+  }
+  /* border: 1px solid rgba(55,65,81,0.08); */
+}
+
+/* Disabled state */
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.back-button-parent{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.back-button-parent button{
+  width: 15%;
+}
+#back-button{
+  width: 40%;
+  height: 2rem;
+}

@@ -1,0 +1,130 @@
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-dark-bg);
+}
+
+.dashboard .container {
+  background: var(--footer-bg);
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem .4rem rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  &:hover{
+      transform: translateY(-3px);
+  }
+}
+.profile-image{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  padding: 4rem 6rem;
+    padding-right: 5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.315);
+}
+
+.profile-image img {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #158232;
+  box-shadow: 0 0 1rem .3rem rgba(4, 255, 0, 0.2);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 5rem;
+  /* border: 1px solid white; */
+  
+}
+
+.details .name p {
+  font-size: var(--font-2xl);
+  font-weight: 600;
+  color: var(--text-color2);
+   /* border: 1px solid white; */
+
+  text-transform: capitalize;
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.152);
+}
+
+.email-verified {
+  display: flex;
+  flex-direction: column;
+  
+  gap: .6rem;
+}
+
+.email-verified .email p {
+  font-size: var(--font-xs);
+  color: var(--text-color2);
+}
+
+.email-verified .verified p {
+  color: #22c55e;
+  font-weight: 500;
+  font-size: var(--font-xs);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  /* border: 1px solid white; */
+  width: 100%;
+  
+}
+
+button{
+     width: 100%;
+  height: 3.5rem;
+  border-radius: 1rem;
+  border: none;
+  display: flex;
+  background-color: #007bff;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  gap: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  font-weight: var(--font-medium);
+  transition: all 0.3s ease;
+ &:hover {
+    transform: scale(1.01);
+    background-color: var(--footer-bg);
+    border: 1px solid white;
+  }
+}
+
+.buttons button {
+  width: 100%;
+  /* margin-top: 10rem; */
+}
+
+.buttons .change-password {
+  background: #007bff;
+  color: #fff;
+  letter-spacing: .1rem;
+}
+
+.buttons .set-password {
+  background: #22c55e;
+  color: #fff;
+}
+
+.buttons button:hover {
+  /* opacity: 0.9; */
+  background-color: var(--footer-bg);
+    border: inset 1px solid white;
+}
+
+/* 

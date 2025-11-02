@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  overflow-y: scroll;
+}
+/* Always reserve scrollbar space to prevent width shift */
+
+:root {
+  /* Typography */
+  --font-xs: 1.2rem;
+  --font-sm: 1.4rem;
+  --font-md: 1.6rem;
+  --font-lg: 1.8rem;
+  --font-xl: 1.9rem;
+  --font-2xl: 2.4rem;
+  --font-3xl: 3rem;
+  --font-4xl: 3.6rem;
+  --font-5xl: 4.8rem;
+  --font-6xl: 6rem;
+
+  /* font weights */
+  --font-thin: 100;
+  --font-extra-light: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+  --font-extra-bold: 800;
+  --font-black: 900;
+
+  /* colors */
+  --color-dark-bg: linear-gradient(135deg, #0f172a, #1e293b);
+  --color-white-bg: #dde6ed;
+  --color-hover: #4fb7b3;
+  --home-text-color: #3b82f6;
+  --text-color1: #d1d5db;
+  --text-color2: #9ca3af;
+  --text-color3: #d1d5db;
+  --button-color: #007bff;
+  --button-hover-color: #0056b3;
+  --footer-bg: #0f172a;
+}
+
+button {
+  cursor: pointer;
+}
+
+.error-message {
+  color: rgb(255, 0, 0);
+  margin-top: 10px;
+  text-align: center;
+  font-size: var(--font-sm);
+  max-width: 44rem;
+}
+
+.login-with-google a {
+  display: block;
+  text-decoration: none;
+}
+
+.submit-btn button {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #007bff;
+  border-radius: 1rem;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.1rem;
+  color: white;
+  border: none;
+
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.01);
+    background-color: var(--footer-bg);
+    border: 1px solid white;
+  }
+}
+
+.login-with-google a button {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 1rem;
+  border: none;
+  display: flex;
+  background-color: #007bff;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  gap: 0.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: var(--font-bold);
+
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.01);
+    background-color: var(--footer-bg);
+    border: 1px solid white;
+  }
+}
+
+button #google-icon {
+  font-size: var(--font-lg);
+}
+
+.password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password input {
+  width: 100%;
+  padding-right: 4rem; /* space for the eye icon */
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  color: gray;
+  font-size: 1.5rem;
+}
+
+.toggle-icon:hover {
+  color: #3b82f6;
+}
+
+/* i have custom password field */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-textfield-decoration-container,
+input[type="password"]::-webkit-password-toggle {
+  display: none !important;
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 55%;
+  }
+
+  /* register , login*/
+  .register .register-container,
+  .login .login-container {
+    min-width: 36rem;
+    /* width: 80%; */
+    padding: 1.7rem 0.6rem;
+  }
+
+/* dashboard */
+  .dashboard .container{
+    flex-direction: column;
+    padding: 1rem 0rem;
+  }
+  .dashboard .container .profile-image{
+    border: none;
+  }
+ .dashboard .container .buttons{
+    margin-bottom: 2rem;
+    margin-top: -.3rem;
+  }
+
+  /* edit image */
+  .edit-image-section .edit-image-page{
+    width: 80%;
+  }
+  /* forgot password */
+  .forgot-container .forgot-box{
+    width: 90%;
+  }
+
+  /* change password */
+  .change-box{
+    width: 80%;
+  }
+
+
+}

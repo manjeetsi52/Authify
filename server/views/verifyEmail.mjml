@@ -1,0 +1,33 @@
+<mjml>
+  <mj-body background-color="#f5f7fa">
+    <mj-section background-color="#ffffff" padding="24px" border-radius="8px">
+      <mj-column>
+        <mj-text font-size="20px" font-weight="700" align="center">
+          <%if(purpose=='register'){%>
+           Verify Your Email 
+           <%}else{%>
+            Forget Password OTP 
+            <%}%>
+        </mj-text>
+
+        <mj-text font-size="14px" color="#666666" align="center">
+          Use the OTP code to complete verification.
+        </mj-text>
+
+        <mj-divider border-color="#e5e7eb" />
+
+        <!-- OTP -->
+        <mj-text font-size="16px" align="center" color="#111827">
+          Your OTP:
+        </mj-text>
+        <mj-text font-size="22px" font-family="monospace" align="center">
+          <%= code %>
+        </mj-text>
+
+        <mj-text font-size="12px" color="#9ca3af" align="center">
+          This code will expire in 15 minutes.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

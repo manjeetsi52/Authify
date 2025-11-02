@@ -1,0 +1,63 @@
+.register {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.register-container {
+  padding: 3rem;
+  /* border: 2px solid white; */
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 1.5rem rgba(255, 255, 255, 0.1);
+  min-width: 50rem;
+}
+
+.register-container .heading {
+  text-align: center;
+  color: white;
+  font-size: var(--font-2xl);
+  text-shadow: 0 0 0.4rem rgba(255, 255, 255, 0.2);
+}
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+.register-form input {
+  /* width: 28rem; */
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 0 1rem;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+.register-form input::placeholder {
+  letter-spacing: 0.1rem;
+}
+.login-para {
+  color: var(--text-color1);
+  font-size: var(--font-xs);
+  letter-spacing: 0.1rem;
+}
+.login-para a {
+  color: var(--home-text-color);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    color: #689ef6;
+  }
+}
+
+

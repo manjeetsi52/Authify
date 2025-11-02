@@ -1,0 +1,28 @@
+.redirection {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark-bg);
+  font-family: "Poppins", sans-serif;
+  color: white ;
+  text-align: center;
+}
+
+.redirection h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  animation: fade 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
