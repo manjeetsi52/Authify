@@ -79,18 +79,84 @@ A **full-stack authentication and authorization system** built with **React.js**
 ```
 
 authify-client/
-├── src/
-│   ├── components/
-│   │   ├── footer/
-│   │   ├── header/
-│   │   └── ui/             # Input, Password, Skeleton
-│   ├── pages/
-│   │   ├── auth/           # Login, Register, Forgot Password
-│   │   ├── dashboard/
-│   │   └── profile/
-│   ├── context/
-│   ├── hooks/
-│   └── utils/
+.
+├── public
+│   ├── profile.jpeg
+│   ├── user-profile.png
+│   └── vite.svg
+├── src
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── footer
+│   │   │   ├── Footer.css
+│   │   │   └── Footer.jsx
+│   │   ├── header
+│   │   │   ├── Header.css
+│   │   │   └── Header.jsx
+│   │   └── ui
+│   │       ├── applayout
+│   │       │   └── Applayout.jsx
+│   │       ├── customUi
+│   │       │   ├── Input.jsx
+│   │       │   └── Password.jsx
+│   │       └── skeleton
+│   │           ├── Skeleton.css
+│   │           └── Skeleton.jsx
+│   ├── context
+│   │   └── AppContext.jsx
+│   ├── hooks
+│   │   └── UseBioContext.jsx
+│   ├── pages
+│   │   ├── changePassword
+│   │   │   ├── ChangePassword.css
+│   │   │   └── ChangePassword.jsx
+│   │   ├── Dashboard
+│   │   │   ├── Dashboard.css
+│   │   │   └── Dashboard.jsx
+│   │   ├── editImage
+│   │   │   ├── EditImage.css
+│   │   │   └── EditImage.jsx
+│   │   ├── email-send
+│   │   │   ├── SendEmail.css
+│   │   │   └── SendEmail.jsx
+│   │   ├── email-verify
+│   │   │   ├── EmailVerification.css
+│   │   │   └── EmailVerification.jsx
+│   │   ├── forgotPassword
+│   │   │   ├── ForgotPassword.css
+│   │   │   └── ForgotPassword.jsx
+│   │   ├── GoogleAuth
+│   │   │   ├── AuthSuccess.jsx
+│   │   │   ├── GoogleAuth.css
+│   │   │   └── GoogleAuth.jsx
+│   │   ├── home
+│   │   │   ├── Home.css
+│   │   │   └── Home.jsx
+│   │   ├── login
+│   │   │   ├── Login.css
+│   │   │   └── Login.jsx
+│   │   ├── Logout
+│   │   │   ├── Logout.css
+│   │   │   └── Logout.jsx
+│   │   └── register
+│   │       ├── Register.css
+│   │       └── Register.jsx
+│   ├── utils
+│   │   └── apiBaseUrl.js
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── Toast.css
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
 
 ```
 
@@ -98,16 +164,56 @@ authify-client/
 ```
 
 authify-server/
-├── controllers/
-│   ├── AuthControllers/
-│   ├── EmailControllers/
-│   └── ProfileUpdate/
-├── models/
-├── middleware/
-├── routes/
-├── services/
-├── validations/
-└── lib/
+├── config
+│   ├── cloudinary.js
+│   └── config.js
+├── controllers
+│   ├── AuthControllers
+│   │   └── hanldeAuth.js
+│   ├── EmailControllers
+│   │   └── emailSend.js
+│   ├── forgotPasswordControllers
+│   │   └── verifyForgotPasswordEmail.js
+│   ├── GoogleAuth
+│   │   └── handleGoogleAuth.js
+│   ├── handleAuthMe
+│   │   └── getUser.js
+│   ├── ProfileUpdate
+│   │   └── updateImage.js
+│   └── setPassword
+│       └── handleSetPassword.js
+├── lib
+│   ├── googleAuth.js
+│   └── nodemailer.js
+├── middleware
+│   ├── uploadMW.js
+│   └── verifyAuthmw.js
+├── models
+│   ├── emailVerificationModel.js
+│   ├── forgotPassworModel.js
+│   ├── googleAuthModel.js
+│   ├── session.js
+│   └── user.js
+├── public
+│   └── uploads
+│       └── avatar
+├── routes
+│   └── route.js
+├── services
+│   └── service.js
+├── validations
+│   ├── emails-templates
+│   │   └── verifyEmail.mjml
+│   └── zod-validation
+│       └── validator.js
+├── views
+│   └── verifyEmail.mjml
+├── .env
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── server.js
+
 
 ````
 
