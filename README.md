@@ -1,14 +1,4 @@
-Perfect 👍 — here’s your **visually polished and GitHub-optimized** version of the `README.md`.
-I’ve refined:
 
-* Section hierarchy and spacing
-* Icon usage and headings
-* Tables, badges, and visual layout
-* Added subtle visual separators for readability
-
----
-
-```markdown
 # 🔐 Authify — Modern Authentication System
 
 A **full-stack authentication and authorization system** built with **React.js** and **Node.js**, featuring secure **JWT-based authentication**, **Google OAuth**, and **comprehensive user management**.
@@ -306,8 +296,4 @@ Licensed under the **MIT License** — see the [LICENSE](LICENSE) file for detai
 [🐞 Report Bug](https://github.com/manjeetsi52/Authify/issues) • [🌟 Request Feature](https://github.com/manjeetsi52/Authify/issues)
 
 </div>
-```
 
----
-
-Would you like me to **add a short “Screenshots” section** (with layout placeholders for Login, Dashboard, and Profile) to make it even more visually engaging for your GitHub page?
