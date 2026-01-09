@@ -45,3 +45,8 @@ router.post('/update-image',avatarUpload.single('image'),updateImage)
 router.get("/", (req, res) => {
   res.send("🚀 Auth server is live via Ngrok!");
 });
+
+// Health check endpoint to wake up Render backend
+router.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
