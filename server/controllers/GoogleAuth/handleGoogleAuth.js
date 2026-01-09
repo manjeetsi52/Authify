@@ -51,13 +51,13 @@ export const getGoogleLoginCallback = async (req, res) => {
     ) {
       return res
         .status(400)
-        .json({ error: "Invalid login attempt , please try again!" });
+        .json({ error: "Invalid login attempt , please try again! from getgooglelogincallback" });
     }
     let token = await google.validateAuthorizationCode(code, codeVerifier);
     if (!token)
       return res
         .status(400)
-        .json({ error: "Invalid login attempt, Please try again!" });
+        .json({ error: "Invalid login attempt, Please try again! no token " });
 
     const claims = decodeIdToken(token.idToken());
     const { sub: googleUserId, name, email, picture } = claims;
@@ -116,7 +116,7 @@ export const getGoogleLoginCallback = async (req, res) => {
     });
 
     return res.redirect(
-      `https://authify-client-19tc.onrender.com/auth-success`
+      `https://authify-fawn.vercel.app/auth-success`
     ); //for hosting
     // return res.redirect(`http://localhost:5173/auth-success`)//for development
   } catch (error) {
