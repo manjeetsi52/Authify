@@ -34,6 +34,8 @@ const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
 export const sendVerificationEmail = async ({ to, subject, html }) => {
   try {
+    console.log("Brevo API Key:", process.env.BREVO_API_KEY);
+
     const resp = await emailApi.sendTransacEmail({
       sender: { email: process.env.SENDER_EMAIL, name: process.env.SENDER_NAME || "Authify" },
       to: [{ email: to }],
