@@ -16,6 +16,7 @@ app.use(
       "http://localhost:5173",
       "https://f98163cba279.ngrok-free.app",
       "https://authify-client-19tc.onrender.com",
+      "https://authify-fawn.vercel.app/"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "HEAD"],
