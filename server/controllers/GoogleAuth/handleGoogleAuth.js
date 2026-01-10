@@ -9,63 +9,60 @@ import {
 } from "../../services/service.js";
 import { Session } from "../../models/session.js";
 
-export const getGoogleLoginPage = (req, res) => {
-  try {
-    const state = generateState();
-    const codeVerifier = generateCodeVerifier();
-    const scope = ["openid", "email", "profile"];
-    const url = google.createAuthorizationURL(state, codeVerifier, scope);
-
-    const cookieConfig = {
-      httpOnly: true,
-      secure: true,
-      maxAge: 60 * 10 * 1000,
-      sameSite: "none",
-    };
-
-    res.cookie("google_oauth_state", state, cookieConfig);
-    res.cookie("google_oauth_codeVerifier", codeVerifier, cookieConfig);
-    
-    console.log("google_oauth_state", state);
-    console.log("google_oauth_codeVerifier", codeVerifier);
-
-    console.log('url',url)
-    return res.status(200).json({ url });
-  } catch (err) {
-    console.error("Error generating Google login URL:", err);
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
 // export const getGoogleLoginPage = (req, res) => {
 //   try {
 //     const state = generateState();
 //     const codeVerifier = generateCodeVerifier();
 //     const scope = ["openid", "email", "profile"];
-
 //     const url = google.createAuthorizationURL(state, codeVerifier, scope);
-//     console.log('url form googleLogin',url)
+
 //     const cookieConfig = {
 //       httpOnly: true,
 //       secure: true,
+//       maxAge: 60 * 10 * 1000,
 //       sameSite: "none",
-//       path: "/",                 // 🔥 REQUIRED
-//       maxAge: 10 * 60 * 1000,
 //     };
 
 //     res.cookie("google_oauth_state", state, cookieConfig);
 //     res.cookie("google_oauth_codeVerifier", codeVerifier, cookieConfig);
+    
+//     console.log("google_oauth_state", state);
+//     console.log("google_oauth_codeVerifier", codeVerifier);
 
-//     console.log('google_oauth_state',state)
-//     console.log('google_oauth_cookieConfig',cookieConfig)
-
-
-//     return res.redirect(url);
+//     console.log()
+//     return res.status(200).json({ url });
 //   } catch (err) {
-//     console.error("Google OAuth init error:", err);
+//     console.error("Error generating Google login URL:", err);
 //     return res.status(500).json({ message: "Internal Server Error" });
 //   }
 // };
+export const getGoogleLoginPage = (req, res) => {
+  try {
+    const state = generateState();
+    const codeVerifier = generateCodeVerifier();
+    const scope = ["openid", "email", "profile"];
+
+    const url = google.createAuthorizationURL(state, codeVerifier, scope);
+
+    const cookieConfig = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",                 // REQUIRED
+      maxAge: 10 * 60 * 1000,
+    };
+
+    res.cookie("google_oauth_state", state, cookieConfig);
+    res.cookie("google_oauth_codeVerifier", codeVerifier, cookieConfig);
+
+    // 🔥 SERVER controls navigation
+    return res.redirect(url);
+  } catch (err) {
+    console.error("Google OAuth init error:", err);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 
 export const getGoogleLoginCallback = async (req, res) => {
   try {
