@@ -1,3 +1,5 @@
+import { useBioContext } from "../../hooks/UseBioContext";
+
 export const AuthSuccess = () => {
   const {
     setUser,
