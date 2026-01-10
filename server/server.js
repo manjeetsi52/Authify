@@ -8,6 +8,7 @@ import cors from 'cors'
 
 dotenv.config();
 const app = express();
+app.use(cookieParser())
 app.set('view engine','ejs')
 app.set("trust proxy", 1);
 app.use(
@@ -27,7 +28,6 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(requestIp.mw())
-app.use(cookieParser())
 app.use('/',router)
 
 
