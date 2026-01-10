@@ -63,38 +63,49 @@ export const App = () => {
   }, []);
 
   /* 🔹 Background auth check (DO NOT block UI) */
-  useEffect(() => {
-    const checkAuth = async () => {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 5000); // safety
+useEffect(() => {
+  const pathname = window.location.pathname;
 
-      try {
-        const res = await axios.get(`${API_BASE_URL}/check-auth`, {
-          withCredentials: true,
-          signal: controller.signal,
-        });
+  // 🚫 Do NOT run auth check during OAuth flow
+  if (
+    pathname === "/google-auth" ||
+    pathname === "/auth-success"
+  ) {
+    setAuthLoading(false);
+    return;
+  }
 
-        if (res.status === 200) {
-          setIsLoggedIn(true);
-          setUser(res.data.user);
-          setUserFromGAuth(res.data.hasPassword);
-          localStorage.setItem("auth", "true");
-        }
-      } catch {
-        setIsLoggedIn(false);
-        localStorage.removeItem("auth");
-      } finally {
-        clearTimeout(timeout);
-        setAuthLoading(false);
+  const checkAuth = async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+
+    try {
+      const res = await axios.get(`${API_BASE_URL}/check-auth`, {
+        withCredentials: true,
+        signal: controller.signal,
+      });
+
+      if (res.status === 200) {
+        setIsLoggedIn(true);
+        setUser(res.data.user);
+        setUserFromGAuth(res.data.hasPassword);
+        localStorage.setItem("auth", "true");
       }
-    };
+    } catch {
+      setIsLoggedIn(false);
+      localStorage.removeItem("auth");
+    } finally {
+      clearTimeout(timeout);
+      setAuthLoading(false);
+    }
+  };
 
-    // optimistic auth (instant UI)
-    const cachedAuth = localStorage.getItem("auth") === "true";
-    setIsLoggedIn(cachedAuth);
+  // optimistic UI
+  const cachedAuth = localStorage.getItem("auth") === "true";
+  setIsLoggedIn(cachedAuth);
 
-    checkAuth();
-  }, [setIsLoggedIn, setUser, setUserFromGAuth, setAuthLoading]);
+  checkAuth();
+}, [setIsLoggedIn, setUser, setUserFromGAuth, setAuthLoading]);
 
   return (
     <>
