@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
-import "./GoogleAuth.css";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
-import API_BASE_URL from "../../utils/apiBaseUrl";
-import { useBioContext } from "../../hooks/UseBioContext";
-
 export const AuthSuccess = () => {
-  const { setUser,setUserFromGAuth} = useBioContext()
-  const navigate = useNavigate();
+  const {
+    setUser,
+    setUserFromGAuth,
+    setIsLoggedIn,
+    setAuthLoading,
+  } = useBioContext();
 
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,13 +15,18 @@ export const AuthSuccess = () => {
         const res = await axios.get(`${API_BASE_URL}/auth/me`, {
           withCredentials: true,
         });
+
         setUser(res.data.user);
-        console.log('res.data.user from authsuccess',res.data.user)
+        setUserFromGAuth(true);
+        setIsLoggedIn(true);              // 🔥 REQUIRED
+        localStorage.setItem("auth", "true");
+        setAuthLoading(false);
+
         toast.success("Login Successful!");
-        setUserFromGAuth(true)//user login from gauth
-        setTimeout(() => navigate("/home"), 1000);
+        navigate("/dashboard");           // 🔥 go directly
       } catch (err) {
-        toast.error(err.response?.data?.error || err.message);
+        setIsLoggedIn(false);
+        localStorage.removeItem("auth");
         navigate("/login");
       } finally {
         setLoading(false);
@@ -35,12 +37,8 @@ export const AuthSuccess = () => {
   }, []);
 
   return (
-    <>
-      <div className="redirection">
-        <h1>
-          {loading ? "Verifying login..." : "Login Successful! Redirecting..."}
-        </h1>
-      </div>
-    </>
+    <div className="redirection">
+      <h1>{loading ? "Verifying login..." : "Redirecting..."}</h1>
+    </div>
   );
 };
