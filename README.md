@@ -17,7 +17,7 @@ A **full-stack authentication and authorization system** built with **React.js**
 
 ## 🚀 Live Demo
 
-**Frontend:** [https://authify-client-19tc.onrender.com](https://authify-fawn.vercel.app/)
+**Frontend:** [(https://authify-fawn.vercel.app)](https://authify-fawn.vercel.app/)]
 **Backend API:** [https://authify-server-c1zn.onrender.com](https://authify-server-c1zn.onrender.com)
 
 ---
