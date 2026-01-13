@@ -27,7 +27,7 @@ export const Footer = () => {
             </>
             }
             <li>
-              <NavLink to="/privacy">Privacy Policy</NavLink>
+             <a href="https://github.com/manjeetsi52/Authify">Github</a>
             </li>
           </ul>
 
