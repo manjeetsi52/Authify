@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
 import {  useState } from "react";
 import axios from "axios";

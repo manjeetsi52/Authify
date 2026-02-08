@@ -1,7 +1,7 @@
 import axios from "axios";
 import {  useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import './Logout.css'
 import API_BASE_URL from "../../utils/apiBaseUrl";
 import { useBioContext } from "../../hooks/UseBioContext";

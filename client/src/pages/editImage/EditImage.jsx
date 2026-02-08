@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./EditImage.css";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import API_BASE_URL from "../../utils/apiBaseUrl";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";

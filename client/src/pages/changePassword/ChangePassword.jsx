@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./ChangePassword.css";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import axios from "axios";
 import { Password } from "../../components/ui/customUi/Password";
 import { useNavigate } from "react-router-dom";

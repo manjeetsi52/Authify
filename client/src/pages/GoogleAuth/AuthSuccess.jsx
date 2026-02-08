@@ -23,12 +23,12 @@ export const AuthSuccess = () => {
 
         setUser(res.data.user);
         setUserFromGAuth(true);
-        setIsLoggedIn(true);              // 🔥 REQUIRED
+        setIsLoggedIn(true);              //  REQUIRED
         localStorage.setItem("auth", "true");
         setAuthLoading(false);
 
         toast.success("Login Successful!");
-        navigate("/dashboard");           // 🔥 go directly
+        navigate("/dashboard");           //  go directly
       } catch (err) {
         setIsLoggedIn(false);
         localStorage.removeItem("auth");

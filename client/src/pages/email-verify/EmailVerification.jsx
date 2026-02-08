@@ -1,7 +1,7 @@
 import {   useRef, useState } from "react";
 import "./EmailVerification.css";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { useLocation, useNavigate } from "react-router-dom";
 import API_BASE_URL from "../../utils/apiBaseUrl";
 import { useBioContext } from "../../hooks/UseBioContext";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ForgotPassword.css";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import API_BASE_URL from "../../utils/apiBaseUrl";
 
