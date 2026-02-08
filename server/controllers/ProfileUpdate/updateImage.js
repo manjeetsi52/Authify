@@ -1,11 +1,12 @@
 import { findUserByEmail, updateUserByEmail } from "../../services/service.js";
 import fs from "fs";
 import cloudinary from "../../config/cloudinary.js";
+import { asynWrapper } from "../AsyncWrapper/asyncWrapper.js";
+import { AppError } from "../../middleware/globalErrorClass.js";
 
-export const updateImage = async (req, res) => {
-  try {
+export const updateImage = asynWrapper(async (req, res) => {
     const { email } = req.body;
-    if (!req.file) return res.status(400).json({ message: "No File" });
+    if (!req.file) throw new AppError('No File',400)
     //upload to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "avatars",
@@ -20,7 +21,7 @@ export const updateImage = async (req, res) => {
 
     //find user and delete old cloud image
     const user = await findUserByEmail(email);
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) throw new AppError("User not found",404) 
 
     // If previous avatarPublicId exists, delete that image from Cloudinary
     if (user.avatarPublicId) {
@@ -32,36 +33,5 @@ export const updateImage = async (req, res) => {
     // 4) Save new avatarUrl and public_id in DB
     await updateUserByEmail({ email, avatarUrl, avatarPublicId });
     return res.status(200).json({ message: "Uploaded", avatarUrl });
-  } catch (error) {
-    console.log("avatar upload error:", error);
-    return res.status(500).json({ error: error.message });
-  }
-};
+})
 
-/* export const updateImage = async (req, res) => {
-  try {
-    const { email } = req.body;
-    //the file is in req.file
-    const fileUrl = req.file
-      ? `/uploads/avatar/${req.file.filename}`
-      : undefined;
-    // console.log("data from updateImage", data);
-
-    if (fileUrl) {
-      //get old avatar path from db to delete and use space
-      const user = await findUserByEmail(email);
-      if (user && user.avatarUrl && !user.avatarUrl.startsWith("http")) {
-        const oldAvatarPath = path.join("public", user.avatarUrl);
-        fs.unlink(oldAvatarPath, (err) => {
-          if (err) console.log("Error deleting old avatar:", err);
-        });
-      }
-
-      await updateUserByEmail({ email, avatarUrl: fileUrl });
-      return res.status(200).json({ message: "Image Uploaded Successfully!" });
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ error: error.message });
-  }
-}; */

@@ -5,6 +5,7 @@ import requestIp from 'request-ip'
 import { connectDB } from "./config/config.js";
 import { router } from "./routes/route.js";
 import cors from 'cors'
+import { errorMw } from "./middleware/erromw.js";
 
 dotenv.config();
 const app = express();
@@ -31,7 +32,7 @@ app.use(requestIp.mw())
 app.use('/',router)
 
 
-
+app.use(errorMw);
 connectDB()
 .then(()=>{
     app.listen(process.env.PORT,()=>console.log(`Server is running on port ${process.env.PORT}!`))
