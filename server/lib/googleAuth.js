@@ -10,4 +10,4 @@ export const google = new Google(
   isProduction
     ? "https://authify-server-c1zn.onrender.com/api/auth/google/callback" // deployed backend
     : "http://localhost:8080/api/auth/google/callback" // local dev
-);
+)

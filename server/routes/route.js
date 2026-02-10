@@ -13,12 +13,13 @@ import { getUserAndAuth } from "../controllers/handleAuthMe/getUser.js";
 import { setPassword } from "../controllers/setPassword/handleSetPassword.js";
 import { updateImage } from "../controllers/ProfileUpdate/updateImage.js";
 import { avatarUpload } from "../middleware/uploadMW.js";
+import { globalRateLimit } from "../middleware/globalRateLimiter.js";
 export const router = Router();
 
 
 router.route("/register",verifyAuth).post(registerUser);
 
-router.route("/login").post(loginUser);
+router.post("/login",globalRateLimit,loginUser);
 
 router.post('/logout',verifyAuth,logoutUser)
 
