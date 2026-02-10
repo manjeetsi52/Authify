@@ -1,0 +1,77 @@
+/* wrapper for Input */
+.input {
+    width: 100%;
+}
+
+/* actual input field */
+.input input {
+    width: 100%;
+    height: 3.6rem;
+    padding: 0 1.2rem;
+    border-radius: 0.8rem;
+    border: 1px solid #334155;
+    background: transparent;
+    color: #fff;
+    font-size: var(--font-sm);
+    letter-spacing: .2rem;
+}
+
+.input input::placeholder {
+    color: var(--text-color2);
+    letter-spacing: .2rem;
+    font-size: var(--font-xs);
+}
+
+.input input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* =====================
+   PASSWORD FIELD
+   ===================== */
+
+.password {
+    position: relative;
+    width: 100%;
+}
+
+.password input {
+    width: 100%;
+    height: 3.6rem;
+    padding: 0 4rem 0 1.2rem;
+    border-radius: 0.8rem;
+    border: 1px solid #334155;
+    background: transparent;
+    color: #fff;
+    letter-spacing: .2rem;
+    font-size: var(--font-sm);
+}
+
+.password input::placeholder {
+    color: var(--text-color2);
+    letter-spacing: .2rem;
+    font-size: var(--font-xs);
+}
+
+.password input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* eye icon */
+.toggle-icon,
+.toggle-icon-register {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 1.6rem;
+}
+
+.toggle-icon:hover,
+.toggle-icon-register:hover {
+    color: #3b82f6;
+}

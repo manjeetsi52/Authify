@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-export const Password = ({classname,name,placeholder,value,onChange,iconClass})=>{
+export const Password = ({classname='password',name,placeholder,value,onChange,iconClass})=>{
      const [showPassword, setShowPassword] = useState(false);
     return(
         <>

@@ -1,5 +1,6 @@
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
-import "./Register.css";
+// import "./Register.css";
+import '../../styles/input.css'
 import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -62,55 +63,112 @@ export const Register = () => {
   };
 
   return (
+    // <section className="register">
+    //   <div className="register-container">
+    //     <h1 className="heading">Register</h1>
+
+    //     <form className="register-form" onSubmit={handleSubmit}>
+    //       <Input
+    //         type="text"
+    //         name="name"
+    //         classname={'input'}
+    //         placeholder="Enter your name"
+    //         value={formData.name}
+    //         onChange={handleInput}
+    //       />
+
+    //       <Input
+    //         type="email"
+    //         name="email"
+    //         classname={'input'}
+    //         placeholder="Enter your email"
+    //         value={formData.email}
+    //         onChange={handleInput}
+    //       />
+
+    //       <Password
+    //         name="password"
+    //         placeholder="Enter your password"
+    //         value={formData.password}
+    //         onChange={handleInput}
+    //         iconClass={"toggle-icon-register"}
+    //       />
+
+    //       <p className="login-para">
+    //         Already have an account? <NavLink to="/login">Login</NavLink>
+    //       </p>
+
+    //       <div className="submit-btn">
+    //         <button type="submit">Register</button>
+    //       </div>
+
+    //       <hr />
+
+    //       <div className="login-with-google">
+    //         <NavLink to="/google-auth">
+    //           <button type="button">
+    //             Login with <FcGoogle />
+    //           </button>
+    //         </NavLink>
+    //       </div>
+    //     </form>
+
+    //     {error && <p className="error-message">{error}</p>}
+    //   </div>
+    // </section>
     <section className="register">
-      <div className="register-container">
-        <h1 className="heading">Register</h1>
+  <div className="register-container">
+    <h1 className="heading">Register</h1>
 
-        <form className="register-form" onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleInput}
-          />
+    <form className="register-form" onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="name"
+        classname="input"
+        placeholder="Enter your name"
+        value={formData.name}
+        onChange={handleInput}
+      />
 
-          <Input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleInput}
-          />
+      <Input
+        type="email"
+        name="email"
+        classname="input"
+        placeholder="Enter your email"
+        value={formData.email}
+        onChange={handleInput}
+      />
 
-          <Password
-            name="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={handleInput}
-          />
+      <Password
+        name="password"
+        placeholder="Enter your password"
+        value={formData.password}
+        onChange={handleInput}
+        iconClass="toggle-icon-register"
+      />
 
-          <p className="login-para">
-            Already have an account? <NavLink to="/login">Login</NavLink>
-          </p>
+      <p className="login-para">
+        Already have an account? <NavLink to="/login">Login</NavLink>
+      </p>
 
-          <div className="submit-btn">
-            <button type="submit">Register</button>
-          </div>
-
-          <hr />
-
-          <div className="login-with-google">
-            <NavLink to="/google-auth">
-              <button type="button">
-                Login with <FcGoogle />
-              </button>
-            </NavLink>
-          </div>
-        </form>
-
-        {error && <p className="error-message">{error}</p>}
+      <div className="submit-btn">
+        <button type="submit">Register</button>
       </div>
-    </section>
+
+      <hr />
+
+      <div className="login-with-google">
+        <NavLink to="/google-auth">
+          <button type="button">
+            Login with <FcGoogle />
+          </button>
+        </NavLink>
+      </div>
+    </form>
+
+    {error && <p className="error-message">{error}</p>}
+  </div>
+</section>
+
   );
 };

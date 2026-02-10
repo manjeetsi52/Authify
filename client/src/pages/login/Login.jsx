@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import "./Login.css";
+// import "./Login.css";
+import '../../styles/input.css'
 import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
 import {  useState } from "react";
@@ -67,12 +68,12 @@ export const Login = () => {
 
   return (
     <>
-      <section className="login">
+      {/* <section className="login">
         <div className="login-container">
           <h1 className="heading">Login</h1>
           <form className="login-form" method="POST" onSubmit={handleSubmit}>
             <Input
-              classname={"email"}
+              classname={"input"}
               type="email"
               name="email"
               id="email"
@@ -108,7 +109,52 @@ export const Login = () => {
           </form>
           {error && <p className="error-message">{error}</p>}
         </div>
-      </section>
+      </section> */}
+      <section className="login">
+  <div className="login-container">
+    <h1 className="heading">Login</h1>
+
+    <form className="login-form" onSubmit={handleSubmit}>
+      <Input
+        type="email"
+        name="email"
+        classname="input"
+        placeholder="Enter your email"
+        value={formData.email}
+        onChange={handleInput}
+      />
+
+      <Password
+        name="password"
+        placeholder="Enter your password"
+        value={formData.password}
+        onChange={handleInput}
+        iconClass="toggle-icon"
+      />
+
+      <p className="login-para">
+        <NavLink to="/forgot-password">Forgot Password?</NavLink>
+      </p>
+
+      <div className="submit-btn">
+        <button type="submit">Login</button>
+      </div>
+
+      <hr />
+
+      <div className="login-with-google">
+        <NavLink to="/google-auth">
+          <button type="button">
+            Login with <FcGoogle />
+          </button>
+        </NavLink>
+      </div>
+    </form>
+
+    {error && <p className="error-message">{error}</p>}
+  </div>
+</section>
+
     </>
   );
 };
