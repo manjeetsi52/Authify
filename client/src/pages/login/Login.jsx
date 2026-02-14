@@ -37,7 +37,7 @@ export const Login = () => {
         setFormData({ name: "", email: "", password: "" });
         setError("");
         setIsLoggedIn(true)
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);

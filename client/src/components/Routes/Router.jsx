@@ -10,12 +10,6 @@ const Register = lazy(() =>
   })),
 );
 
-// const Home = lazy(() =>
-//   import("../../pages/home/Home").then((module) => ({
-//     default: module.Home,
-//   })),
-// );
-
 const Login = lazy(() =>
   import("../../pages/login/Login").then((module) => ({
     default: module.Login,
