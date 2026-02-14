@@ -2,14 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useBioContext } from "../../hooks/UseBioContext";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import { toast, Toaster } from "sonner";
+import "./GoogleAuth.css";
+import API_BASE_URL from "../../utils/apiBaseUrl";
+import axios from "axios";
 export const AuthSuccess = () => {
-  const {
-    setUser,
-    setUserFromGAuth,
-    setIsLoggedIn,
-    setAuthLoading,
-  } = useBioContext();
+  const { setUser, setUserFromGAuth, setIsLoggedIn, setAuthLoading } =
+    useBioContext();
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -23,15 +22,12 @@ export const AuthSuccess = () => {
 
         setUser(res.data.user);
         setUserFromGAuth(true);
-        setIsLoggedIn(true);              //  REQUIRED
-        localStorage.setItem("auth", "true");
+        setIsLoggedIn(true); 
         setAuthLoading(false);
-
-        toast.success("Login Successful!");
-        navigate("/dashboard");           //  go directly
+        toast("Login Successful!");
+        navigate("/home"); //  go directly
       } catch (err) {
         setIsLoggedIn(false);
-        localStorage.removeItem("auth");
         navigate("/login");
       } finally {
         setLoading(false);
@@ -44,6 +40,7 @@ export const AuthSuccess = () => {
   return (
     <div className="redirection">
       <h1>{loading ? "Verifying login..." : "Redirecting..."}</h1>
+      <Toaster position="top-center"/>
     </div>
   );
 };

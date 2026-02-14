@@ -1,9 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 // import "./Login.css";
-import '../../styles/input.css'
+import "../../styles/input.css";
 import { toast } from "sonner";
 import { FcGoogle } from "react-icons/fc";
-import {  useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Input } from "../../components/ui/customUi/Input";
 import { Password } from "../../components/ui/customUi/Password";
@@ -11,9 +11,10 @@ import API_BASE_URL from "../../utils/apiBaseUrl";
 import { useBioContext } from "../../hooks/UseBioContext";
 
 export const Login = () => {
-  const {isLoggedIn,setIsLoggedIn ,setUser,setUserFromGAuth} = useBioContext()
+  const { isLoggedIn, setIsLoggedIn, setUser, setUserFromGAuth } =
+    useBioContext();
   const navigate = useNavigate();
-  if(isLoggedIn) return navigate('/home')
+  if (isLoggedIn) return navigate("/home");
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     email: "",
@@ -29,14 +30,20 @@ export const Login = () => {
     e.preventDefault();
     try {
       console.log(formData);
-      const res = await axios.post(`${API_BASE_URL}/login`, formData,axios.defaults.withCredentials=true);
+      const res = await axios.post(
+        `${API_BASE_URL}/login`,
+        formData,
+        (axios.defaults.withCredentials = true),
+      );
       if (res.status == 200) {
         toast.success(res.data.message);
-        if(res.data.hasPassword) {setUserFromGAuth(false)}
-        setUser(res.data.user)
+        if (res.data.hasPassword) {
+          setUserFromGAuth(false);
+        }
+        setUser(res.data.user);
         setFormData({ name: "", email: "", password: "" });
         setError("");
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
         navigate("/");
       }
     } catch (error) {
@@ -68,93 +75,50 @@ export const Login = () => {
 
   return (
     <>
-      {/* <section className="login">
+      <section className="login">
         <div className="login-container">
           <h1 className="heading">Login</h1>
-          <form className="login-form" method="POST" onSubmit={handleSubmit}>
+
+          <form className="login-form" onSubmit={handleSubmit}>
             <Input
-              classname={"input"}
               type="email"
               name="email"
-              id="email"
-              placeholder="Enter Your Email"
+              classname="input"
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleInput}
             />
+
             <Password
-              classname="password"
               name="password"
-              id="password"
-              placeholder="Enter Your Password"
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleInput}
-              iconClass={"toggle-icon"}
+              iconClass="toggle-icon"
             />
-            <div>
-              <p className="login-para">
-              <NavLink to="/forgot-password" >Forget Password?</NavLink>
-              </p>
-            </div>
+
+            <p className="login-para">
+              <NavLink to="/forgot-password">Forgot Password?</NavLink>
+            </p>
+
             <div className="submit-btn">
               <button type="submit">Login</button>
             </div>
+
             <hr />
+
             <div className="login-with-google">
-              <NavLink to={"/google-auth"}>
-                <button>
-                  Login with <FcGoogle id="google-icon" />
+              <NavLink to="/google-auth">
+                <button type="button">
+                  Login with <FcGoogle />
                 </button>
               </NavLink>
             </div>
           </form>
+
           {error && <p className="error-message">{error}</p>}
         </div>
-      </section> */}
-      <section className="login">
-  <div className="login-container">
-    <h1 className="heading">Login</h1>
-
-    <form className="login-form" onSubmit={handleSubmit}>
-      <Input
-        type="email"
-        name="email"
-        classname="input"
-        placeholder="Enter your email"
-        value={formData.email}
-        onChange={handleInput}
-      />
-
-      <Password
-        name="password"
-        placeholder="Enter your password"
-        value={formData.password}
-        onChange={handleInput}
-        iconClass="toggle-icon"
-      />
-
-      <p className="login-para">
-        <NavLink to="/forgot-password">Forgot Password?</NavLink>
-      </p>
-
-      <div className="submit-btn">
-        <button type="submit">Login</button>
-      </div>
-
-      <hr />
-
-      <div className="login-with-google">
-        <NavLink to="/google-auth">
-          <button type="button">
-            Login with <FcGoogle />
-          </button>
-        </NavLink>
-      </div>
-    </form>
-
-    {error && <p className="error-message">{error}</p>}
-  </div>
-</section>
-
+      </section>
     </>
   );
 };
