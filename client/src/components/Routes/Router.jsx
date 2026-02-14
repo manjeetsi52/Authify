@@ -1,24 +1,83 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Register } from "../../pages/register/Register";
-import { Home } from "../../pages/home/Home";
-import { Login } from "../../pages/login/Login";
-import { Dashboard } from "../../pages/Dashboard/Dashboard";
-import { SendEmail } from "../../pages/email-send/SendEmail";
-import { VerifyEmail } from "../../pages/email-verify/EmailVerification";
-import { ForgotPassword } from "../../pages/forgotPassword/ForgotPassword";
-import { ChangePassword } from "../../pages/changePassword/ChangePassword";
-import { GoogleAuth } from "../../pages/GoogleAuth/GoogleAuth";
-import { AuthSuccess } from "../../pages/GoogleAuth/AuthSuccess";
-import { EditImage } from "../../pages/editImage/EditImage";
-import { Logout } from "../../pages/Logout/Logout";
-import { authLoader } from "../../utils/loader";
-import { AppLayout } from "../ui/applayout/Applayout";
+
+const Register = lazy(() =>
+  import("../../pages/register/Register").then((module) => ({
+    default: module.Register,
+  })),
+);
+
+const Home = lazy(() =>
+  import("../../pages/home/Home").then((module) => ({
+    default: module.Home,
+  })),
+);
+
+const Login = lazy(() =>
+  import("../../pages/login/Login").then((module) => ({
+    default: module.Login,
+  })),
+);
+
+const Dashboard = lazy(() =>
+  import("../../pages/Dashboard/Dashboard").then((module) => ({
+    default: module.Dashboard,
+  })),
+);
+
+const SendEmail = lazy(() =>
+  import("../../pages/email-send/SendEmail").then((module) => ({
+    default: module.SendEmail,
+  })),
+);
+
+const VerifyEmail = lazy(() =>
+  import("../../pages/email-verify/EmailVerification").then((module) => ({
+    default: module.VerifyEmail,
+  })),
+);
+
+const ForgotPassword = lazy(() =>
+  import("../../pages/forgotPassword/ForgotPassword").then((module) => ({
+    default: module.ForgotPassword,
+  })),
+);
+
+const ChangePassword = lazy(() =>
+  import("../../pages/changePassword/ChangePassword").then((module) => ({
+    default: module.ChangePassword,
+  })),
+);
+
+const GoogleAuth = lazy(() =>
+  import("../../pages/GoogleAuth/GoogleAuth").then((module) => ({
+    default: module.GoogleAuth,
+  })),
+);
+
+const AuthSuccess = lazy(() =>
+  import("../../pages/GoogleAuth/AuthSuccess").then((module) => ({
+    default: module.AuthSuccess,
+  })),
+);
+
+const EditImage = lazy(() =>
+  import("../../pages/editImage/EditImage").then((module) => ({
+    default: module.EditImage,
+  })),
+);
+
+const Logout = lazy(() =>
+  import("../../pages/Logout/Logout").then((module) => ({
+    default: module.Logout,
+  })),
+);
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    loader:authLoader,
+    loader: authLoader,
     children: [
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
