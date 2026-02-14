@@ -1,17 +1,20 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-
+import { AppLayout } from "../ui/applayout/Applayout";
+import { authLoader } from "../../utils/loader";
+import {Home} from '../../pages/home/Home'
+// import {authLoader} 
 const Register = lazy(() =>
   import("../../pages/register/Register").then((module) => ({
     default: module.Register,
   })),
 );
 
-const Home = lazy(() =>
-  import("../../pages/home/Home").then((module) => ({
-    default: module.Home,
-  })),
-);
+// const Home = lazy(() =>
+//   import("../../pages/home/Home").then((module) => ({
+//     default: module.Home,
+//   })),
+// );
 
 const Login = lazy(() =>
   import("../../pages/login/Login").then((module) => ({
@@ -72,6 +75,7 @@ const Logout = lazy(() =>
     default: module.Logout,
   })),
 );
+
 
 export const router = createBrowserRouter([
   {
